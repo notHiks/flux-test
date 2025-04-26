@@ -1,2 +1,11 @@
 # GitHub actions binaries
 bin/
+
+#sops
+encrypted/*.{yaml,json,ini,env} diff=sopsdiffer
+
+#secrets
+*.crt
+*.key
+kubeconfig
+talosconfig
