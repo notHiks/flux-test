@@ -11,7 +11,7 @@ spec:
     secretRef:
       name: sops-age
   interval: 1h
-  path: ./kubernetes/apps
+  path: ./apps
   prune: true
   retryInterval: 2m
   sourceRef:
