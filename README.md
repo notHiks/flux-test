@@ -4,6 +4,10 @@
 [![e2e](https://github.com/notHiks/flux-test/workflows/e2e/badge.svg)](https://github.com/notHiks/flux-test/actions)
 [![license](https://img.shields.io/github/license/notHiks/flux-test.svg)](https://github.com/notHiks/flux-test/blob/main/LICENSE)
 
+
+changed to  https://github.com/onedr0p/home-ops
+
+
 For this example we assume a scenario with two clusters: staging and production.
 The end goal is to leverage Flux and Kustomize to manage both clusters while minimizing duplicated declarations.
 
