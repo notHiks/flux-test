@@ -1,63 +1,62 @@
 ---
-# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/source.toolkit.fluxcd.io/helmrepository_v1beta2.json
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/source.toolkit.fluxcd.io/ocirepository_v1beta2.json
 apiVersion: source.toolkit.fluxcd.io/v1beta2
-kind: HelmRepository
+kind: OCIRepository
 metadata:
   name: cilium
-  namespace: kube-system
 spec:
-  interval: 5m0s
-  url: https://helm.cilium.io/
+  interval: 5m
+  layerSelector:
+    mediaType: application/vnd.cncf.helm.chart.content.v1.tar+gzip
+    operation: copy
+  ref:
+    tag: 1.17.3
+  url: oci://ghcr.io/home-operations/charts-mirror/cilium
 ---
-# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/helm.toolkit.fluxcd.io/helmrelease_v2beta2.json
-apiVersion: helm.toolkit.fluxcd.io/v2beta2
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/helm.toolkit.fluxcd.io/helmrelease_v2.json
+apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: cilium
-  namespace: kube-system
 spec:
-  interval: 5m
-  chart:
-    spec:
-      chart: cilium
-      version: "<1.15.7"
-      sourceRef:
-        kind: HelmRepository
-        name: cilium
-        namespace: kube-system
-      interval: 1m
+  interval: 1h
+  chartRef:
+    kind: OCIRepository
+    name: cilium
+  install:
+    remediation:
+      retries: -1
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  valuesFrom:
+    - kind: ConfigMap
+      name: cilium-values
   values:
-    ipam:
-      mode: kubernetes
-    hostFirewall:
-      enabled: true
     hubble:
+      enabled: true
+      metrics:
+        enabled:
+          - dns:query
+          - drop
+          - tcp
+          - flow
+          - port-distribution
+          - icmp
+          - http
+        serviceMonitor:
+          enabled: true
+        dashboards:
+          enabled: true
       relay:
         enabled: true
+        rollOutPods: true
+        prometheus:
+          serviceMonitor:
+            enabled: true
       ui:
         enabled: true
-    kubeProxyReplacement: strict
-    securityContext:
-      capabilities:
-        ciliumAgent:
-        - CHOWN
-        - KILL
-        - NET_ADMIN
-        - NET_RAW
-        - IPC_LOCK
-        - SYS_ADMIN
-        - SYS_RESOURCE
-        - DAC_OVERRIDE
-        - FOWNER
-        - SETGID
-        - SETUID
-        cleanCiliumState:
-        - NET_ADMIN
-        - SYS_ADMIN
-        - SYS_RESOURCE
-    cgroup:
-      autoMount:
-        enabled: true
-      hostRoot: /sys/fs/cgroup
-    k8sServiceHost: api.cephiro.musai.ovh
-    k8sServicePort: "6443"
+        rollOutPods: true
+    operator:
+      tolerations: []
