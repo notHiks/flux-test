@@ -1,4 +1,4 @@
-# flux2-kustomize-helm-example
+# flux-test
 
 [![test](https://github.com/notHiks/flux-test/workflows/test/badge.svg)](https://github.com/notHiks/flux-test/actions)
 [![e2e](https://github.com/notHiks/flux-test/workflows/e2e/badge.svg)](https://github.com/notHiks/flux-test/actions)
