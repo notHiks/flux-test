@@ -3,23 +3,20 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: &app flux-instance
-  namespace: &namespace flux-system
+  name: &app podinfo
+  namespace: &namespace default
 spec:
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
-  dependsOn:
-    - name: flux-operator
-      namespace: *namespace
   interval: 1h
-  path: ./apps/flux-system/flux-instance/app
+  path: ./cephiro/apps/default/podinfo/app
   prune: true
   retryInterval: 2m
   sourceRef:
     kind: GitRepository
     name: flux-system
     namespace: flux-system
-  targetNamespace: flux-system
+  targetNamespace: *namespace
   timeout: 5m
   wait: false

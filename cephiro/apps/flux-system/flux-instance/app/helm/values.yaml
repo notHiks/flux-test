@@ -14,7 +14,7 @@ instance:
     kind: GitRepository
     url: https://github.com/notHiks/flux-test
     ref: refs/heads/main
-    path: flux/cluster
+    path: cephiro/flux/cluster
     interval: 1h
   commonMetadata:
     labels:

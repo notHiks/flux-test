@@ -11,7 +11,7 @@ spec:
     secretRef:
       name: sops-age
   interval: 1h
-  path: ./apps
+  path: ./cephiro/apps
   prune: true
   retryInterval: 2m
   sourceRef:
