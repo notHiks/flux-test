@@ -6,5 +6,4 @@ metadata:
   name: main-pool
 spec:
   blocks:
-  - start: "192.168.99.71"
-    stop:  "192.168.99.89"
+  - cidr: "192.168.99.71/32"
