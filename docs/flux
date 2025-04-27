@@ -1,0 +1,5 @@
+  kubectl create secret generic flux-system \
+      --namespace=flux-system \
+      --from-literal=GITHUB_TOKEN=<>
+
+kubectl apply -f flux-instance.yaml
