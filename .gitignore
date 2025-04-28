@@ -1,6 +1,10 @@
 # GitHub actions binaries
 bin/
 
+#doc files
+docs/
+talos/
+
 #sops
 encrypted/*.{yaml,json,ini,env} diff=sopsdiffer
 
