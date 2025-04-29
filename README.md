@@ -1,6 +1,6 @@
 # Cephiro PR
 
-[![test](https://github.com/notHiks/flux-test/workflows/test/badge.svg)](https://github.com/notHiks/flux-test/actions)
+[![kubeconform](https://github.com/notHiks/flux-test/workflows/kubeconform/badge.svg)](https://github.com/notHiks/flux-test/actions)
 [![e2e](https://github.com/notHiks/flux-test/workflows/e2e/badge.svg)](https://github.com/notHiks/flux-test/actions)
 [![license](https://img.shields.io/github/license/notHiks/flux-test.svg)](https://github.com/notHiks/flux-test/blob/main/LICENSE)
 
