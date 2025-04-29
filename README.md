@@ -5,7 +5,7 @@
 [![license](https://img.shields.io/github/license/notHiks/flux-test.svg)](https://github.com/notHiks/flux-test/blob/main/LICENSE)
 
 
-changed to  https://github.com/onedr0p/home-ops
+changed to  https://github.com/onedr0p/home-ops (rebased)
 
 
 For this example we assume a scenario with two clusters: staging and production.
