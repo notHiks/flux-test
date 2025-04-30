@@ -3,7 +3,7 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: OCIRepository
 metadata:
-  name: rook-ceph
+  name: piraeus-operator
 spec:
   interval: 5m
   layerSelector:
