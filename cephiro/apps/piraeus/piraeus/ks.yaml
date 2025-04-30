@@ -3,8 +3,8 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: &app rook-ceph
-  namespace: &namespace rook-ceph
+  name: &app piraeus-operator
+  namespace: &namespace piraeus-operator
 spec:
   commonMetadata:
     labels:
@@ -15,7 +15,7 @@ spec:
       name: piraeus-operator
       namespace: *namespace
   interval: 1h
-  path: ./kubernetes/apps/piraeus/piraeus/app
+  path: ./cephiro/apps/piraeus/piraeus/app
   prune: true
   retryInterval: 2m
   sourceRef:
