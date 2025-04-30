@@ -30,7 +30,7 @@ jobs:
           --ignore-paths="clusters/**/flux-system/"
           flux create kustomization flux-system \
           --source=flux-system \
-          --path=./clusters/staging
+          --path=./cephito/flux/cluster
       - name: Verify cluster reconciliation
         run: |
           kubectl -n kube-system wait kustomization/cilium --for=condition=ready --timeout=5m
