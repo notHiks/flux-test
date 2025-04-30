@@ -4,7 +4,7 @@ apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
   name: &app piraeus-operator
-  namespace: &namespace piraeus-operator
+  namespace: &namespace piraeus-datastore
 spec:
   commonMetadata:
     labels:
