@@ -11,7 +11,7 @@ spec:
     operation: copy
   ref:
     tag: 6.8.0
-  url: oci://ghcr.io/stefanprodan/manifests/podinfo
+  url: oci://ghcr.io/stefanprodan/charts/podinfo
 ---
 # yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/helm.toolkit.fluxcd.io/helmrelease_v2.json
 apiVersion: helm.toolkit.fluxcd.io/v2
